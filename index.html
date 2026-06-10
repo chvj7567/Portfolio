@@ -16,28 +16,22 @@
       justify-content: center;
       padding: 24px;
     }
-    .card {
-      width: 100%;
-      max-width: 560px;
+    .card { width: 100%; max-width: 560px; }
+    .header { margin-bottom: 32px; }
+    h1 { font-size: 32px; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .role { color: #8b93a1; font-size: 15px; letter-spacing: 0.01em; }
+    .notice {
+      background: #16191f;
+      border: 1px solid #262a33;
+      border-left: 3px solid #4a90d9;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      color: #aab2c0;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
-    .header {
-      margin-bottom: 40px;
-    }
-    h1 {
-      font-size: 32px;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-    .role {
-      color: #8b93a1;
-      font-size: 15px;
-      letter-spacing: 0.01em;
-    }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .links { display: flex; flex-direction: column; gap: 12px; }
     a.link {
       display: flex;
       align-items: center;
@@ -50,33 +44,12 @@
       color: #e6e8eb;
       transition: border-color 0.15s, transform 0.15s, background 0.15s;
     }
-    a.link:hover {
-      background: #20242d;
-      border-color: #3a4150;
-      transform: translateY(-2px);
-    }
-    .link-main {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    .link-title {
-      font-size: 16px;
-      font-weight: 600;
-    }
-    .link-sub {
-      font-size: 13px;
-      color: #8b93a1;
-    }
-    .arrow {
-      color: #5a6373;
-      font-size: 18px;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 13px;
-      color: #5a6373;
-    }
+    a.link:hover { background: #20242d; border-color: #3a4150; transform: translateY(-2px); }
+    .link-main { display: flex; flex-direction: column; gap: 3px; }
+    .link-title { font-size: 16px; font-weight: 600; }
+    .link-sub { font-size: 13px; color: #8b93a1; }
+    .arrow { color: #5a6373; font-size: 18px; }
+    footer { margin-top: 40px; font-size: 13px; color: #5a6373; }
   </style>
 </head>
 <body>
@@ -85,18 +58,21 @@
       <h1>태상규</h1>
       <div class="role">Unity Client Developer · 구조와 자동화로 비효율을 해결합니다</div>
     </div>
+    <div class="notice">
+      각 GitHub 프로젝트의 상세 내용은 해당 저장소의 <strong>README</strong>에 정리되어 있습니다. 함께 확인 부탁드립니다.
+    </div>
     <div class="links">
       <a class="link" href="https://github.com/chvj7567/Project_Lair" target="_blank" rel="noopener">
         <span class="link-main">
           <span class="link-title">Project Lair</span>
-          <span class="link-sub">GitHub · Unity 게임 프로젝트</span>
+          <span class="link-sub">GitHub · Unity 프로젝트</span>
         </span>
         <span class="arrow">↗</span>
       </a>
       <a class="link" href="https://github.com/chvj7567/Project_CP" target="_blank" rel="noopener">
         <span class="link-main">
           <span class="link-title">Project CP</span>
-          <span class="link-sub">GitHub · Unity 프로젝트</span>
+          <span class="link-sub">GitHub · 프로젝트</span>
         </span>
         <span class="arrow">↗</span>
       </a>
