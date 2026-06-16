@@ -12,7 +12,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>태상규 | Unity Client Developer</title>
+  <title>태상규 | Client Developer</title>
   <style>
     :root {
       --bg: #0f1115;
@@ -94,6 +94,18 @@
     .tag-ai     { background: rgba(74,144,217,0.15);  color: var(--blue-soft); border: 1px solid rgba(74,144,217,0.3); }
     .tag-hybrid { background: rgba(180,142,73,0.15);  color: var(--amber); border: 1px solid rgba(180,142,73,0.3); }
     .tag-manual { background: rgba(96,180,110,0.15);  color: var(--green); border: 1px solid rgba(96,180,110,0.3); }
+    .engine {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
+    }
+    .engine-unity  { background: rgba(255,255,255,0.10); color: #e6e9ee;        border: 1px solid rgba(255,255,255,0.25); }
+    .engine-unreal { background: rgba(127,180,230,0.15); color: var(--blue-soft); border: 1px solid rgba(127,180,230,0.40); }
     .link .ext { color: var(--text-faint); font-size: 18px; }
 
     /* ---- Divider into the showcase ---- */
@@ -264,7 +276,7 @@
     <div class="intro top-id">
       <div class="header">
         <h1>태상규</h1>
-        <div class="role">Unity Client Developer · 구조와 자동화로 비효율을 해결합니다</div>
+        <div class="role">Client Developer · 구조와 자동화로 비효율을 해결합니다</div>
       </div>
     </div>
 
@@ -468,25 +480,33 @@
       <div class="links">
         <a class="link" href="https://github.com/chvj7567/Project_Lair" target="_blank" rel="noopener">
           <span class="link-main">
-            <span class="link-title">Project Lair</span>
-            <span class="link-sub">GitHub · Unity 프로젝트</span>
+            <span class="link-title">Project Lair<span class="engine engine-unity">Unity</span></span>
+            <span class="link-sub">GitHub 저장소</span>
             <span class="link-tag tag-ai">AI 기반 설계·구현</span>
           </span>
           <span class="ext">↗</span>
         </a>
         <a class="link" href="https://github.com/chvj7567/Project_CP" target="_blank" rel="noopener">
           <span class="link-main">
-            <span class="link-title">Project CP</span>
-            <span class="link-sub">GitHub · Unity 프로젝트</span>
+            <span class="link-title">Project CP<span class="engine engine-unity">Unity</span></span>
+            <span class="link-sub">GitHub 저장소</span>
             <span class="link-tag tag-hybrid">직접 구현 후 AI 리팩토링·리메이크</span>
           </span>
           <span class="ext">↗</span>
         </a>
         <a class="link" href="https://github.com/chvj7567/SkillTool" target="_blank" rel="noopener">
           <span class="link-main">
-            <span class="link-title">Project Skill</span>
-            <span class="link-sub">GitHub · Unity 프로젝트</span>
+            <span class="link-title">Project Skill<span class="engine engine-unity">Unity</span></span>
+            <span class="link-sub">GitHub 저장소</span>
             <span class="link-tag tag-manual">AI 미사용 · 전 과정 직접 구현</span>
+          </span>
+          <span class="ext">↗</span>
+        </a>
+        <a class="link" href="https://github.com/chvj7567/UnrealSkillProject" target="_blank" rel="noopener">
+          <span class="link-main">
+            <span class="link-title">Unreal Skill Project<span class="engine engine-unreal">Unreal</span></span>
+            <span class="link-sub">GitHub 저장소</span>
+            <span class="link-tag tag-hybrid">구조 직접 설계 · 기능 추가 AI 활용</span>
           </span>
           <span class="ext">↗</span>
         </a>
@@ -501,7 +521,7 @@
     </div>
 
     <footer>
-      <span>태상규 · Unity Client Developer</span>
+      <span>태상규 · Client Developer</span>
       <span><a href="https://github.com/chvj7567" target="_blank" rel="noopener">github.com/chvj7567 ↗</a></span>
     </footer>
 
