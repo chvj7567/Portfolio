@@ -212,6 +212,8 @@
       background: var(--bg-soft); border: 1px solid var(--border); color: var(--text-dim);
     }
     .agent .tag.ro { color: var(--amber); border-color: rgba(217,176,106,0.3); background: rgba(217,176,106,0.1); }
+    .agent .tag.daily  { color: var(--blue-soft); border-color: rgba(74,144,217,0.3);  background: rgba(74,144,217,0.1); }
+    .agent .tag.weekly { color: var(--green);     border-color: rgba(116,196,127,0.3); background: rgba(116,196,127,0.1); }
     .agent .a-desc { font-size: 13.5px; color: var(--text-mute); }
     .agent .a-desc b { color: var(--text); font-weight: 600; }
 
@@ -401,10 +403,38 @@
       </div>
     </section>
 
-    <!-- 03 Rules -->
-    <section id="rules">
+    <!-- 03 Routines -->
+    <section id="routines">
       <div class="sec-head">
         <span class="sec-num">03</span>
+        <h3>정기 자동화 루틴</h3>
+        <p class="sec-sub">에이전트가 요청받을 때만 일하지 않습니다. 일간·주간 스케줄로 백그라운드에서 기획 인풋을 만들어 git 에 올리고, <b>산출물은 초안일 뿐 사람이 확인해 반영</b>합니다.</p>
+      </div>
+      <div class="grid">
+        <div class="agent" style="--ac: var(--blue-soft)">
+          <div class="a-top"><code>idea-backlog</code><span class="tag daily">일간</span></div>
+          <p class="a-desc">💡 <b>추가 기획 아이디어 정리</b> — 신규 콘텐츠·기능 기획거리를 모아 백로그 문서로 정리합니다.</p>
+        </div>
+        <div class="agent" style="--ac: var(--cyan)">
+          <div class="a-top"><code>reference-research</code><span class="tag weekly">주간</span></div>
+          <p class="a-desc">🔍 <b>레퍼런스 게임 리서치</b> — 레퍼런스·경쟁 게임을 점검해 비교·분석 문서를 갱신합니다.</p>
+        </div>
+        <div class="agent" style="--ac: var(--violet)">
+          <div class="a-top"><code>game-flow-doc</code><span class="tag weekly">주간</span></div>
+          <p class="a-desc">🧭 <b>게임 플로우 문서 정리</b> — 게임 흐름·시스템 동선 문서를 최신 상태로 정리합니다.</p>
+        </div>
+      </div>
+      <div class="pipeline-note" style="margin-top:18px">
+        <span class="pill">🔄 매 실행마다 자동 git 푸시</span>
+        <span class="pill human">✅ 반영은 항상 사람이</span>
+        루틴은 초안을 올리고, 사람이 확인해 추가·업데이트합니다.
+      </div>
+    </section>
+
+    <!-- 04 Rules -->
+    <section id="rules">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
         <h3>명문화된 코딩 룰 5개</h3>
         <p class="sec-sub"><span class="mono-accent">.claude/rules/</span> 에 명시해 AI 산출물을 통제합니다. 위반은 리뷰 에이전트가 차단하고,<br><b>최종 커밋은 항상 사람</b>이 합니다.</p>
       </div>
@@ -432,10 +462,10 @@
       </div>
     </section>
 
-    <!-- 04 Infra -->
+    <!-- 05 Infra -->
     <section id="infra">
       <div class="sec-head">
-        <span class="sec-num">04</span>
+        <span class="sec-num">05</span>
         <h3>직접 설계한 공용 인프라 패키지</h3>
         <p class="sec-sub">AI 코드도 중복 구현 없이 이 패키지의 API 만 호출하도록 강제했습니다 (Rule 03).</p>
       </div>
@@ -455,10 +485,10 @@
       </div>
     </section>
 
-    <!-- 05 Reuse -->
+    <!-- 06 Reuse -->
     <section id="reuse">
       <div class="sec-head">
-        <span class="sec-num">05</span>
+        <span class="sec-num">06</span>
         <h3>도메인 비종속 — 통째로 재사용 가능</h3>
       </div>
       <div class="panel">
