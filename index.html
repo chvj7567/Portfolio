@@ -288,6 +288,16 @@
     .engine-unreal { background: rgba(127,180,230,0.15); color: var(--blue-soft); border: 1px solid rgba(127,180,230,0.40); }
     .link .ext { color: var(--text-faint); font-size: 18px; }
 
+    .links-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+    .links-col-h {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+    .links-col-h.unity  { color: #e6e9ee; }
+    .links-col-h.unreal { color: var(--blue-soft); }
+    .links.links-etc { margin-top: 18px; }
+    @media (max-width: 760px) { .links-cols { grid-template-columns: 1fr; } }
+
     footer {
       margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--border);
       font-size: 13px; color: var(--text-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
@@ -673,39 +683,59 @@
       <div class="notice">
         각 GitHub 프로젝트의 상세 내용과 <strong>플레이 영상</strong>은 해당 저장소의 <strong>README</strong>에 정리되어 있습니다.
       </div>
-      <div class="links">
-        <a class="link" href="https://github.com/chvj7567/Project_Lair" target="_blank" rel="noopener">
-          <span class="link-main">
-            <span class="link-title">Project Lair<span class="engine engine-unity">Unity</span></span>
-            <span class="link-sub">GitHub 저장소</span>
-            <span class="link-tag tag-ai">AI 기반 설계·구현</span>
-          </span>
-          <span class="ext">↗</span>
-        </a>
-        <a class="link" href="https://github.com/chvj7567/Project_CP" target="_blank" rel="noopener">
-          <span class="link-main">
-            <span class="link-title">Project CP<span class="engine engine-unity">Unity</span></span>
-            <span class="link-sub">GitHub 저장소</span>
-            <span class="link-tag tag-hybrid">직접 구현 후 AI 리팩토링·리메이크</span>
-          </span>
-          <span class="ext">↗</span>
-        </a>
-        <a class="link" href="https://github.com/chvj7567/SkillTool" target="_blank" rel="noopener">
-          <span class="link-main">
-            <span class="link-title">Project Skill<span class="engine engine-unity">Unity</span></span>
-            <span class="link-sub">GitHub 저장소</span>
-            <span class="link-tag tag-manual">AI 미사용 · 전 과정 직접 구현</span>
-          </span>
-          <span class="ext">↗</span>
-        </a>
-        <a class="link" href="https://github.com/chvj7567/UnrealSkillProject" target="_blank" rel="noopener">
-          <span class="link-main">
-            <span class="link-title">Unreal Skill Project<span class="engine engine-unreal">Unreal</span></span>
-            <span class="link-sub">GitHub 저장소</span>
-            <span class="link-tag tag-hybrid">구조 직접 설계 · 기능 추가 AI 활용</span>
-          </span>
-          <span class="ext">↗</span>
-        </a>
+      <div class="links-cols">
+        <div class="links-col">
+          <div class="links-col-h unity">UNITY</div>
+          <div class="links">
+            <a class="link" href="https://github.com/chvj7567/Project_Lair" target="_blank" rel="noopener">
+              <span class="link-main">
+                <span class="link-title">Project Lair</span>
+                <span class="link-sub">GitHub 저장소</span>
+                <span class="link-tag tag-ai">AI 기반 설계·구현</span>
+              </span>
+              <span class="ext">↗</span>
+            </a>
+            <a class="link" href="https://github.com/chvj7567/Project_CP" target="_blank" rel="noopener">
+              <span class="link-main">
+                <span class="link-title">Project CP</span>
+                <span class="link-sub">GitHub 저장소</span>
+                <span class="link-tag tag-hybrid">직접 구현 후 AI 리팩토링·리메이크</span>
+              </span>
+              <span class="ext">↗</span>
+            </a>
+            <a class="link" href="https://github.com/chvj7567/SkillTool" target="_blank" rel="noopener">
+              <span class="link-main">
+                <span class="link-title">Project Skill</span>
+                <span class="link-sub">GitHub 저장소</span>
+                <span class="link-tag tag-manual">AI 미사용 · 전 과정 직접 구현</span>
+              </span>
+              <span class="ext">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="links-col">
+          <div class="links-col-h unreal">UNREAL</div>
+          <div class="links">
+            <a class="link" href="https://github.com/chvj7567/UnrealSkillProject" target="_blank" rel="noopener">
+              <span class="link-main">
+                <span class="link-title">Unreal Skill Project</span>
+                <span class="link-sub">GitHub 저장소</span>
+                <span class="link-tag tag-hybrid">구조 직접 설계 · 기능 추가 AI 활용</span>
+              </span>
+              <span class="ext">↗</span>
+            </a>
+            <a class="link" href="https://github.com/chvj7567/Project_RPG" target="_blank" rel="noopener">
+              <span class="link-main">
+                <span class="link-title">Project RPG</span>
+                <span class="link-sub">GitHub 저장소</span>
+                <span class="link-tag tag-manual">AI 미사용 · 전 과정 직접 구현</span>
+              </span>
+              <span class="ext">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="links links-etc">
         <a class="link" href="https://blog.naver.com/chvj7567" target="_blank" rel="noopener">
           <span class="link-main">
             <span class="link-title">기술 블로그</span>
