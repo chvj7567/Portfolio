@@ -32,118 +32,96 @@
       --violet: #a48bd9;
       --red: #e0726a;
       --cyan: #5cc6cf;
+      --mono: ui-monospace, "SF Mono", Menlo, monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
       word-break: keep-all;
       -webkit-font-smoothing: antialiased;
     }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
     .page { max-width: 920px; margin: 0 auto; padding: 56px 24px 96px; }
 
-    /* ---- Intro (portfolio landing) ---- */
+    /* ---- 상단 identity ---- */
     .intro { max-width: 560px; margin: 0 auto; }
-    .intro .header { margin-bottom: 28px; }
     .intro h1 { font-size: 32px; letter-spacing: -0.02em; margin-bottom: 6px; }
     .intro .role { color: var(--text-dim); font-size: 15px; letter-spacing: 0.01em; }
     .top-id { text-align: center; }
-    .top-id .header { margin-bottom: 0; }
-    .links-block { margin-top: 72px; }
-    .links-block .links-heading { font-size: 20px; letter-spacing: -0.01em; margin-bottom: 16px; }
-    .notice {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--blue);
-      border-radius: 8px;
-      padding: 14px 16px;
-      font-size: 13.5px;
-      color: var(--text-mute);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .links { display: flex; flex-direction: column; gap: 12px; }
-    a.link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.15s, transform 0.15s, background 0.15s;
-    }
-    a.link:hover { background: var(--bg-card-hover); border-color: var(--border-strong); transform: translateY(-2px); }
-    .link-main { display: flex; flex-direction: column; gap: 3px; }
-    .link-title { font-size: 16px; font-weight: 600; }
-    .link-sub { font-size: 13px; color: var(--text-dim); }
-    .link-tag {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 999px;
-      width: fit-content;
-    }
-    .tag-ai     { background: rgba(74,144,217,0.15);  color: var(--blue-soft); border: 1px solid rgba(74,144,217,0.3); }
-    .tag-hybrid { background: rgba(180,142,73,0.15);  color: var(--amber); border: 1px solid rgba(180,142,73,0.3); }
-    .tag-manual { background: rgba(96,180,110,0.15);  color: var(--green); border: 1px solid rgba(96,180,110,0.3); }
-    .engine {
-      display: inline-block;
-      margin-left: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
-      vertical-align: middle;
-      letter-spacing: 0.02em;
-    }
-    .engine-unity  { background: rgba(255,255,255,0.10); color: #e6e9ee;        border: 1px solid rgba(255,255,255,0.25); }
-    .engine-unreal { background: rgba(127,180,230,0.15); color: var(--blue-soft); border: 1px solid rgba(127,180,230,0.40); }
-    .link .ext { color: var(--text-faint); font-size: 18px; }
 
-    /* ---- Divider into the showcase ---- */
-    .showcase-intro { margin: 72px auto 0; text-align: center; }
+    /* ---- 인트로 ---- */
+    .showcase-intro { margin: 60px auto 0; text-align: center; }
     .showcase-intro .eyebrow {
-      display: inline-block;
-      font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--blue-soft);
-      background: rgba(74,144,217,0.12);
-      border: 1px solid rgba(74,144,217,0.28);
-      border-radius: 999px;
-      padding: 5px 13px;
-      margin-bottom: 20px;
+      display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--blue-soft);
+      background: rgba(74,144,217,0.12); border: 1px solid rgba(74,144,217,0.28);
+      border-radius: 999px; padding: 5px 13px; margin-bottom: 20px;
     }
-    .showcase-intro h2 {
-      font-size: 30px; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 18px;
-    }
+    .showcase-intro h2 { font-size: 30px; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 18px; text-wrap: balance; }
     .showcase-intro h2 .accent { color: var(--blue-soft); }
     .thesis {
       font-size: 16px; color: var(--text-mute); text-align: left;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--blue);
-      background: var(--bg-soft);
-      border-radius: 0 8px 8px 0;
-      padding: 16px 20px;
+      border: 1px solid var(--border); border-left: 3px solid var(--blue);
+      background: var(--bg-soft); border-radius: 0 8px 8px 0; padding: 16px 20px;
     }
     .thesis strong { color: var(--text); font-weight: 600; }
-    /* ---- Sections ---- */
-    section { margin-top: 60px; }
-    .sec-head { margin-bottom: 26px; }
-    .sec-num { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 0.04em; }
-    section h3 { font-size: 24px; letter-spacing: -0.01em; margin: 4px 0 8px; }
-    .sec-sub { font-size: 14.5px; color: var(--text-dim); max-width: 660px; }
-    .sec-sub code, .sec-sub b { color: var(--text-mute); }
-    .mono-accent { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--blue-soft); }
+    .thesis .signpost {
+      display: block; margin-top: 10px; padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 14px; color: var(--text-dim);
+    }
+    .thesis .signpost b { color: var(--blue-soft); font-family: var(--mono); font-size: 13px; }
 
-    /* ---- Pipeline ---- */
+    section { margin-top: 60px; }
+
+    /* ---- 섹션 헤더 + 엔진 탭 ---- */
+    .sec-head { margin-bottom: 26px; }
+    .sec-head.has-tabs {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 16px 20px; flex-wrap: wrap;
+    }
+    .sec-head-main { flex: 1 1 340px; min-width: 0; }
+    .sec-num { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 0.04em; }
+    section h3 { font-size: 24px; letter-spacing: -0.01em; margin: 4px 0 8px; text-wrap: balance; }
+    .sec-sub { font-size: 14.5px; color: var(--text-dim); max-width: 660px; }
+    .sec-sub b { color: var(--text-mute); }
+    .mono-accent { font-family: var(--mono); color: var(--blue-soft); }
+
+    .eng-tabs {
+      flex-shrink: 0; display: inline-flex; gap: 3px; padding: 3px;
+      background: var(--bg-soft); border: 1px solid var(--border); border-radius: 999px;
+      margin-top: 2px;
+    }
+    .eng-tab {
+      font-family: var(--sans); font-size: 12.5px; font-weight: 600;
+      color: var(--text-dim); background: transparent;
+      border: 1px solid transparent; border-radius: 999px;
+      padding: 5px 15px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
+    }
+    .eng-tab:hover { color: var(--text); }
+    .eng-tab .swatch { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.4; }
+    .eng-tab[aria-selected="true"] {
+      color: var(--text); background: var(--bg-card); border-color: var(--border-strong);
+    }
+    .eng-tab[aria-selected="true"] .swatch { opacity: 1; }
+    .eng-tab:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    [data-engine="unity"]  .eng-tab[data-engine="unity"][aria-selected="true"]  { color: #e6e9ee; }
+    [data-engine="unreal"] .eng-tab[data-engine="unreal"][aria-selected="true"] { color: var(--blue-soft); }
+
+    /* ---- 탭 표시/숨김 ---- */
+    [data-engine="unity"]  .only-unreal { display: none !important; }
+    [data-engine="unreal"] .only-unity  { display: none !important; }
+
+    /* ---- 파이프라인 ---- */
     .pipeline {
       display: flex; flex-wrap: wrap; align-items: stretch;
       background: var(--bg-soft); border: 1px solid var(--border);
@@ -161,7 +139,7 @@
       background: var(--bg-card); border: 1.5px solid var(--ac, var(--border-strong)); color: var(--ac, var(--text));
     }
     .stage .s-name { font-size: 14px; font-weight: 600; }
-    .stage .s-agent { font-size: 11.5px; color: var(--ac, var(--text-faint)); margin-top: 3px; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+    .stage .s-agent { font-size: 11.5px; color: var(--ac, var(--text-faint)); margin-top: 3px; font-family: var(--mono); }
     .stage .arr { position: absolute; top: 26px; right: -6px; color: var(--text-faint); font-size: 16px; line-height: 1; }
     .stage:last-child .arr { display: none; }
     .stage.gate .dot {
@@ -179,7 +157,6 @@
     }
     .pipeline-note .pill.human { background: rgba(116,196,127,0.12); border-color: rgba(116,196,127,0.3); color: var(--green); }
 
-    /* ---- Skill selection ---- */
     .select-note {
       display: flex; gap: 14px; align-items: flex-start;
       background: var(--bg-soft); border: 1px solid var(--border);
@@ -191,12 +168,12 @@
     .select-note strong { color: var(--text); }
     .flow { margin-top: 20px; }
     .flow-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 9px; flex-wrap: wrap; }
-    .flow-name { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 15px; font-weight: 700; color: var(--ac, var(--text)); }
+    .flow-name { font-family: var(--mono); font-size: 15px; font-weight: 700; color: var(--text); }
     .flow-badge { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 999px; white-space: nowrap; background: var(--bg-soft); border: 1px solid var(--border); color: var(--text-dim); }
     .flow-desc { font-size: 12.5px; color: var(--text-dim); }
-    .flow .pipeline { border-left: 3px solid var(--ac, var(--border-strong)); padding: 18px 16px; }
+    .flow .pipeline { border-left: 3px solid var(--border-strong); padding: 18px 16px; }
 
-    /* ---- Agent grid ---- */
+    /* ---- 카드 그리드 ---- */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 14px; }
     .agent {
       background: var(--bg-card); border: 1px solid var(--border);
@@ -204,20 +181,23 @@
       border-top: 2px solid var(--ac, var(--border-strong));
       transition: border-color 0.15s, transform 0.15s, background 0.15s;
     }
-    .agent:hover { background: var(--bg-card-hover); border-color: var(--border-strong); border-top-color: var(--ac); transform: translateY(-2px); }
+    .agent:hover { background: var(--bg-card-hover); border-color: var(--border-strong); transform: translateY(-2px); }
     .agent .a-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .agent code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px; font-weight: 600; color: var(--ac, var(--text)); }
+    .agent code { font-family: var(--mono); font-size: 13.5px; font-weight: 600; color: var(--ac, var(--text)); }
     .agent .tag {
       margin-left: auto; font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap;
       background: var(--bg-soft); border: 1px solid var(--border); color: var(--text-dim);
     }
-    .agent .tag.ro { color: var(--amber); border-color: rgba(217,176,106,0.3); background: rgba(217,176,106,0.1); }
     .agent .tag.daily  { color: var(--blue-soft); border-color: rgba(74,144,217,0.3);  background: rgba(74,144,217,0.1); }
     .agent .tag.weekly { color: var(--green);     border-color: rgba(116,196,127,0.3); background: rgba(116,196,127,0.1); }
     .agent .a-desc { font-size: 13.5px; color: var(--text-mute); }
     .agent .a-desc b { color: var(--text); font-weight: 600; }
+    .agent .a-eng {
+      display: block; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-faint); font-family: var(--mono); line-height: 1.6;
+    }
 
-    /* ---- Rules ---- */
+    /* ---- 룰 ---- */
     .rules { display: flex; flex-direction: column; gap: 10px; }
     .rule {
       display: flex; gap: 16px; align-items: flex-start;
@@ -227,34 +207,86 @@
     }
     .rule:hover { background: var(--bg-card-hover); border-color: var(--border-strong); }
     .rule .r-id {
-      flex-shrink: 0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      flex-shrink: 0; font-family: var(--mono);
       font-size: 13px; font-weight: 700; color: var(--blue-soft);
       background: rgba(74,144,217,0.1); border: 1px solid rgba(74,144,217,0.25);
       border-radius: 7px; padding: 5px 10px; min-width: 64px; text-align: center;
     }
     .rule .r-title { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
     .rule .r-desc { font-size: 13.5px; color: var(--text-dim); }
+    .rule .r-file { font-family: var(--mono); font-size: 12px; color: var(--text-faint); margin-top: 5px; display: block; }
 
-    /* ---- Infra ---- */
-    #infra .panel { background: linear-gradient(135deg, var(--bg-soft), var(--bg-card)); border: 1px solid var(--border); border-radius: 16px; padding: 26px 24px; }
-    .infra-name { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
-    .infra-note { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif; font-size: 12px; font-weight: 500; color: var(--text-dim); }
+    /* ---- 인프라 ---- */
+    .panel-infra { background: linear-gradient(135deg, var(--bg-soft), var(--bg-card)); border: 1px solid var(--border); border-radius: 16px; padding: 26px 24px; }
+    .infra-name { font-family: var(--mono); font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    .infra-note { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--text-dim); }
+    .infra-lead { font-size: 14px; color: var(--text-mute); }
     .infra-modules { display: flex; flex-direction: column; gap: 8px; margin: 16px 0 14px; }
-    .mod-row { display: flex; align-items: center; gap: 12px; }
-    .mod-key { flex-shrink: 0; min-width: 92px; text-align: center; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; font-weight: 600; color: var(--green); background: rgba(116,196,127,0.08); border: 1px solid rgba(116,196,127,0.22); border-radius: 7px; padding: 5px 11px; }
+    .mod-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .mod-key { flex-shrink: 0; min-width: 92px; text-align: center; font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--green); background: rgba(116,196,127,0.08); border: 1px solid rgba(116,196,127,0.22); border-radius: 7px; padding: 5px 11px; }
+    .mod-key.wide { min-width: 168px; }
     .mod-desc { font-size: 13px; color: var(--text-mute); }
-    .infra-flow { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; color: var(--text-dim); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 11px 14px; margin-top: 6px; }
+    .infra-flow { font-family: var(--mono); font-size: 12.5px; color: var(--text-dim); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 11px 14px; margin-top: 6px; overflow-x: auto; }
     .infra-flow b { color: var(--green); }
 
-    /* ---- Reuse ---- */
-    #reuse .panel {
+    /* ---- 에디터 자동화 리드 ---- */
+    .editor-lead {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-left: 3px solid var(--cyan); border-radius: 0 10px 10px 0;
+      padding: 14px 18px; margin-bottom: 16px;
+    }
+    .editor-lead .si { font-size: 18px; line-height: 1.4; }
+    .editor-lead p { font-size: 13.5px; color: var(--text-mute); }
+    .editor-lead strong { color: var(--text); }
+
+    /* ---- 이식 ---- */
+    .panel-reuse {
       background: var(--bg-soft); border: 1px solid var(--border); border-left: 3px solid var(--violet);
       border-radius: 0 12px 12px 0; padding: 22px 24px; display: flex; gap: 18px; align-items: flex-start;
     }
-    #reuse .icon { font-size: 26px; line-height: 1.2; }
-    #reuse .panel p { font-size: 15px; color: var(--text-mute); }
-    #reuse .panel strong { color: var(--text); }
-    #reuse code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px; color: var(--violet); }
+    .panel-reuse .icon { font-size: 26px; line-height: 1.2; }
+    .panel-reuse p { font-size: 15px; color: var(--text-mute); }
+    .panel-reuse strong { color: var(--text); }
+    .panel-reuse code { font-family: var(--mono); font-size: 13.5px; color: var(--violet); }
+    .proof { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-top: 16px; }
+    .proof-col { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+    .proof-col .pc-h { font-size: 12px; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 6px; }
+    .proof-col.u  .pc-h { color: #e6e9ee; }
+    .proof-col.ue .pc-h { color: var(--blue-soft); }
+    .proof-col.sh .pc-h { color: var(--green); }
+    .proof-col .pc-b { font-size: 12.5px; color: var(--text-dim); font-family: var(--mono); line-height: 1.75; }
+
+    /* ---- 프로젝트 & 링크 ---- */
+    .links-block { margin-top: 72px; }
+    .links-block .links-heading { font-size: 20px; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .notice {
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-left: 3px solid var(--blue); border-radius: 8px;
+      padding: 14px 16px; font-size: 13.5px; color: var(--text-mute);
+      line-height: 1.6; margin: 14px 0 20px;
+    }
+    .links { display: flex; flex-direction: column; gap: 12px; }
+    a.link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 20px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px;
+      text-decoration: none; color: var(--text);
+      transition: border-color 0.15s, transform 0.15s, background 0.15s;
+    }
+    a.link:hover { background: var(--bg-card-hover); border-color: var(--border-strong); transform: translateY(-2px); }
+    a.link:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+    .link-main { display: flex; flex-direction: column; gap: 3px; }
+    .link-title { font-size: 16px; font-weight: 600; }
+    .link-sub { font-size: 13px; color: var(--text-dim); }
+    .link-tag { display: inline-block; margin-top: 6px; font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; width: fit-content; }
+    .tag-ai     { background: rgba(74,144,217,0.15);  color: var(--blue-soft); border: 1px solid rgba(74,144,217,0.3); }
+    .tag-hybrid { background: rgba(180,142,73,0.15);  color: var(--amber);     border: 1px solid rgba(180,142,73,0.3); }
+    .tag-manual { background: rgba(96,180,110,0.15);  color: var(--green);     border: 1px solid rgba(96,180,110,0.3); }
+    .engine { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; vertical-align: middle; letter-spacing: 0.02em; }
+    .engine-unity  { background: rgba(255,255,255,0.10); color: #e6e9ee;         border: 1px solid rgba(255,255,255,0.25); }
+    .engine-unreal { background: rgba(127,180,230,0.15); color: var(--blue-soft); border: 1px solid rgba(127,180,230,0.40); }
+    .link .ext { color: var(--text-faint); font-size: 18px; }
 
     footer {
       margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--border);
@@ -268,13 +300,14 @@
       .page { padding: 40px 18px 72px; }
       .stage { flex-basis: 33%; }
       .stage .arr { display: none; }
+      .sec-head.has-tabs { flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <div class="page">
 
-    <!-- ===== Top identity ===== -->
+    <!-- ===== 상단 identity ===== -->
     <div class="intro top-id">
       <div class="header">
         <h1>태상규</h1>
@@ -290,20 +323,25 @@
         역할이 분리된 <strong>6개 AI 에이전트</strong>가 기획 → 리뷰 → 구현 → 검토 → 테스트 → 밸런스 검증을 분담합니다.
         <strong>메인 AI 는 조율만</strong> 하고 직접 코드를 짜지 않으며, <strong>최종 커밋은 항상 사람</strong>이 합니다.
         룰을 위반한 산출물은 리뷰 에이전트가 차단합니다.
+        <span class="signpost">
+          이 체계를 <b>Unity</b> 와 <b>Unreal</b> 두 프로젝트에서 함께 쓰고 있습니다.
+          에이전트 구성 · 파이프라인 · 정기 루틴은 동일하고, 엔진에 따라 갈리는
+          <b>04 룰 · 05 인프라 · 06 에디터</b>는 각 섹션에서 전환해 보실 수 있습니다.
+        </span>
       </p>
     </div>
 
-    <!-- 01 Agents -->
+    <!-- 01 에이전트 -->
     <section id="agents">
       <div class="sec-head">
         <span class="sec-num">01</span>
         <h3>6개의 전담 에이전트</h3>
-        <p class="sec-sub">에이전트마다 권한과 책임을 좁게 고정했습니다. 기획자는 코드를, 구현자는 밸런스를 건드리지 않습니다.</p>
+        <p class="sec-sub">에이전트마다 권한과 책임을 좁게 고정했습니다. 기획자는 코드를, 구현자는 밸런스를 건드리지 않습니다. <b>두 엔진 프로젝트가 같은 역할 분리를 씁니다.</b></p>
       </div>
       <div class="grid">
         <div class="agent" style="--ac: var(--blue-soft)">
           <div class="a-top"><code>game-designer</code><span class="tag">기획</span></div>
-          <p class="a-desc">콘텐츠 기획 · 밸런스 수치 · 페이싱 설계. <b>코드 작성 금지.</b></p>
+          <p class="a-desc">콘텐츠 기획 · 밸런스 수치 · 페이싱 설계. <b>코드 작성 금지.</b> UI 기획이면 HTML 목업까지 함께 냅니다.</p>
         </div>
         <div class="agent" style="--ac: var(--amber)">
           <div class="a-top"><code>design-reviewer</code><span class="tag">읽기 전용</span></div>
@@ -311,7 +349,8 @@
         </div>
         <div class="agent" style="--ac: var(--green)">
           <div class="a-top"><code>gameplay-programmer</code><span class="tag">구현</span></div>
-          <p class="a-desc">기획서 기반 C# 구현. <b>.cs 파일은 전부 이 에이전트</b>만 다룹니다.</p>
+          <p class="a-desc">기획서 기반 구현. <b>구현 파일은 전부 이 에이전트</b>만 다룹니다.</p>
+          <span class="a-eng">Unity .cs · Unreal .h / .cpp</span>
         </div>
         <div class="agent" style="--ac: var(--cyan)">
           <div class="a-top"><code>code-reviewer</code><span class="tag">읽기 전용</span></div>
@@ -319,7 +358,8 @@
         </div>
         <div class="agent" style="--ac: var(--violet)">
           <div class="a-top"><code>test-engineer</code><span class="tag">테스트</span></div>
-          <p class="a-desc">EditMode / PlayMode 테스트 스위트. <b>게임 로직은 작성하지 않습니다.</b></p>
+          <p class="a-desc">자동화 테스트 스위트 작성. <b>게임 로직은 작성하지 않습니다.</b></p>
+          <span class="a-eng">Unity EditMode / PlayMode · Unreal Automation</span>
         </div>
         <div class="agent" style="--ac: var(--red)">
           <div class="a-top"><code>qa-simulator</code><span class="tag">밸런스</span></div>
@@ -328,12 +368,12 @@
       </div>
     </section>
 
-    <!-- 02 Pipeline / Skills -->
+    <!-- 02 파이프라인 -->
     <section id="pipeline">
       <div class="sec-head">
         <span class="sec-num">02</span>
         <h3>작업 규모에 맞는 파이프라인 선택</h3>
-        <p class="sec-sub">위 에이전트들이 단방향으로 협업합니다. 모든 작업에 전체 흐름을 돌리지 않고, 작업 규모에 맞춰 거치는 단계가 다른 스킬 4가지를 정의해 두었습니다. <b>각 단계 점은 담당 에이전트 색상</b>과 같습니다.</p>
+        <p class="sec-sub">위 에이전트들이 단방향으로 협업합니다. 모든 작업에 전체 흐름을 돌리지 않고, 작업 규모에 맞춰 거치는 단계가 다른 스킬 4가지를 정의해 두었습니다. <b>두 엔진 프로젝트가 이 4개 스킬을 이름·순서까지 동일하게 공유합니다.</b></p>
       </div>
       <div class="select-note">
         <span class="si">🙋</span>
@@ -375,7 +415,7 @@
         <div class="flow-head">
           <span class="flow-name">/start-develop-simple</span>
           <span class="flow-badge">프로토타입</span>
-          <span class="flow-desc">리뷰·밸런스 시뮬 생략 · 테스트는 유지</span>
+          <span class="flow-desc">리뷰 생략 · 테스트는 유지</span>
         </div>
         <div class="pipeline">
           <div class="stage" style="--ac: var(--blue-soft)"><div class="dot">1</div><div class="s-name">기획</div><div class="s-agent">game-designer</div><span class="arr">→</span></div>
@@ -399,11 +439,11 @@
       <div class="pipeline-note">
         <span class="pill">⛔ 사용자 승인 게이트</span>
         <span class="pill human">커밋도 항상 사람이</span>
-        밸런스 시뮬(qa-simulator)은 게임플레이 영향이 클 때 별도로 도는 짧은 사이클입니다.
+        UI 배선이 포함되면 목업 승인 게이트가 한 번 더 걸립니다 (06 참고).
       </div>
     </section>
 
-    <!-- 03 Routines -->
+    <!-- 03 정기 루틴 -->
     <section id="routines">
       <div class="sec-head">
         <span class="sec-num">03</span>
@@ -431,77 +471,203 @@
       </div>
     </section>
 
-    <!-- 04 Rules -->
-    <section id="rules">
-      <div class="sec-head">
-        <span class="sec-num">04</span>
-        <h3>명문화된 코딩 룰 5개</h3>
-        <p class="sec-sub"><span class="mono-accent">.claude/rules/</span> 에 명시해 AI 산출물을 통제합니다. 위반은 리뷰 에이전트가 차단하고,<br><b>최종 커밋은 항상 사람</b>이 합니다.</p>
+    <!-- 04 룰 (엔진 탭) -->
+    <section id="rules" data-engine="unity">
+      <div class="sec-head has-tabs">
+        <div class="sec-head-main">
+          <span class="sec-num">04</span>
+          <h3>명문화된 코딩 룰 5개</h3>
+          <p class="sec-sub"><span class="mono-accent">.claude/rules/</span> 에 명시해 AI 산출물을 통제합니다. 위반은 리뷰 에이전트가 차단하고, <b>최종 커밋은 항상 사람</b>이 합니다.</p>
+        </div>
+        <div class="eng-tabs" role="tablist" aria-label="04 룰 엔진 선택">
+          <button class="eng-tab" role="tab" data-engine="unity" aria-selected="true"><span class="swatch"></span>Unity</button>
+          <button class="eng-tab" role="tab" data-engine="unreal" aria-selected="false"><span class="swatch"></span>Unreal</button>
+        </div>
       </div>
       <div class="rules">
         <div class="rule">
           <span class="r-id">Rule 00</span>
-          <div><div class="r-title">프로젝트 메타 파일</div><div class="r-desc">에이전트가 프로젝트를 인지하는 단일 진입점.</div></div>
+          <div><div class="r-title">프로젝트 메타 파일</div>
+            <div class="r-desc">에이전트가 프로젝트를 인지하는 단일 진입점 + 메인 오케스트레이터 행동 규칙.</div>
+            <span class="r-file only-unity">00-project-meta-file.md</span>
+            <span class="r-file only-unreal">.claude/project.md</span>
+          </div>
         </div>
         <div class="rule">
           <span class="r-id">Rule 01</span>
-          <div><div class="r-title">자동 커밋 금지</div><div class="r-desc">AI 는 스테이징 + 커밋 메시지(안)까지만. 최종 커밋은 사람.</div></div>
+          <div><div class="r-title">자동 커밋 금지</div><div class="r-desc">AI 는 스테이징 + 커밋 메시지(안)까지만. 최종 커밋은 사람.</div>
+            <span class="r-file only-unity">01-no-auto-commit.md</span>
+            <span class="r-file only-unreal">git-conventions.md</span>
+          </div>
         </div>
         <div class="rule">
           <span class="r-id">Rule 02</span>
-          <div><div class="r-title">C# 스타일</div><div class="r-desc">주석·네이밍 규칙 + MVVM + 클래스 종속성 최소화.</div></div>
+          <div>
+            <div class="r-title only-unity">C# 스타일</div>
+            <div class="r-title only-unreal">C++ 스타일</div>
+            <div class="r-desc only-unity">주석·네이밍 규칙 + MVVM + 클래스 종속성 최소화.</div>
+            <div class="r-desc only-unreal">UE 접두사 · 주석 <span class="mono-accent">//#</span> · <span class="mono-accent">TObjectPtr</span> · 명시적 널 비교.</div>
+            <span class="r-file only-unity">02-csharp-style.md</span>
+            <span class="r-file only-unreal">cpp-style.md</span>
+          </div>
         </div>
         <div class="rule">
           <span class="r-id">Rule 03</span>
-          <div><div class="r-title">인프라 패키지 사용 강제</div><div class="r-desc">풀링 · Enum 키 리소스 로드 · UI 래퍼. 중복 구현 금지.</div></div>
+          <div><div class="r-title">인프라 사용 강제</div>
+            <div class="r-desc only-unity">풀링 · 리소스 로드 · UI 래퍼는 패키지 API 로만. 게임 코드에서 중복 구현 금지.</div>
+            <div class="r-desc only-unreal">GAS · 에셋 로드 · UI · 모듈형 액터는 플러그인 API 로만. 중복 구현 금지.</div>
+            <span class="r-file only-unity">03-chvjpackage.md</span>
+            <span class="r-file only-unreal">unreal-infra.md + plugin-*.md 4개</span>
+          </div>
         </div>
         <div class="rule">
           <span class="r-id">Rule 04</span>
-          <div><div class="r-title">Unity 에셋 규칙</div><div class="r-desc">프리팹화 · 타입별 폴더 구조 · Addressables 일원화.</div></div>
+          <div>
+            <div class="r-title only-unity">Unity 에셋 규칙</div>
+            <div class="r-title only-unreal">에셋 · UI 워크플로 규칙</div>
+            <div class="r-desc only-unity">반복 구성 프리팹화 · Prefab Variant · 타입별 폴더 구조 · Addressables 일원화.</div>
+            <div class="r-desc only-unreal">하드코딩 에셋 경로 금지 · UI 작업은 목업 승인 후 착수.</div>
+            <span class="r-file only-unity">04-unity-asset.md</span>
+            <span class="r-file only-unreal">ui-workflow.md</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 05 Infra -->
-    <section id="infra">
-      <div class="sec-head">
-        <span class="sec-num">05</span>
-        <h3>직접 설계한 공용 인프라 패키지</h3>
-        <p class="sec-sub">AI 코드도 중복 구현 없이 이 패키지의 API 만 호출하도록 강제했습니다 (Rule 03).</p>
+    <!-- 05 인프라 (엔진 탭) -->
+    <section id="infra" data-engine="unity">
+      <div class="sec-head has-tabs">
+        <div class="sec-head-main">
+          <span class="sec-num">05</span>
+          <h3>직접 설계한 공용 인프라</h3>
+          <p class="sec-sub">AI 코드도 중복 구현 없이 이 계층의 API 만 호출하도록 강제했습니다 (Rule 03).</p>
+        </div>
+        <div class="eng-tabs" role="tablist" aria-label="05 인프라 엔진 선택">
+          <button class="eng-tab" role="tab" data-engine="unity" aria-selected="true"><span class="swatch"></span>Unity</button>
+          <button class="eng-tab" role="tab" data-engine="unreal" aria-selected="false"><span class="swatch"></span>Unreal</button>
+        </div>
       </div>
-      <div class="panel">
-        <div class="infra-name">com.chvj.unityinfra <span class="infra-note">(추가 기능 필요 시 지속적으로 추가 중)</span></div>
-        <p style="font-size:14px;color:var(--text-mute)">리소스 · 풀 · UI · 사운드부터 광고 · 결제 · 소셜까지 한곳에 묶은 기준 토대.</p>
+
+      <div class="panel-infra only-unity">
+        <div class="infra-name">com.chvj.unityinfra <span class="infra-note">(Packages/ — 추가 기능 필요 시 지속적으로 추가 중)</span></div>
+        <p class="infra-lead">리소스 · 풀 · UI · 사운드부터 광고 · 결제 · 소셜까지 한곳에 묶은 기준 토대.</p>
         <div class="infra-modules">
+          <div class="mod-row"><span class="mod-key">Core</span><span class="mod-desc">싱글톤 · 공용 유틸 · SDK 진입점</span></div>
           <div class="mod-row"><span class="mod-key">Resource</span><span class="mod-desc">Addressables 기반 에셋 로드</span></div>
           <div class="mod-row"><span class="mod-key">Pool</span><span class="mod-desc">오브젝트 풀링</span></div>
           <div class="mod-row"><span class="mod-key">UI</span><span class="mod-desc">UI 래퍼 · 팝업</span></div>
           <div class="mod-row"><span class="mod-key">Audio</span><span class="mod-desc">사운드 재생</span></div>
+          <div class="mod-row"><span class="mod-key">Network</span><span class="mod-desc">HTTP 통신 · 서버 연동</span></div>
           <div class="mod-row"><span class="mod-key">Ads</span><span class="mod-desc">광고 연동</span></div>
           <div class="mod-row"><span class="mod-key">IAP</span><span class="mod-desc">인앱 결제</span></div>
           <div class="mod-row"><span class="mod-key">Social</span><span class="mod-desc">GPGS(Google Play Games) 연동</span></div>
         </div>
-        <div class="infra-flow">의존성 방향: <b>게임 코드</b> → <b>인프라 패키지</b> → Unity 표준 (역방향 참조 금지)</div>
+        <div class="infra-flow">의존성 방향: <b>Assets/ (게임 코드)</b> → <b>com.chvj.unityinfra</b> → Unity 표준 패키지 (역방향 참조 금지)</div>
+      </div>
+
+      <div class="panel-infra only-unreal">
+        <div class="infra-name">재사용 플러그인 4종 <span class="infra-note">(Plugins/ — 프로젝트 비의존, 게임 모듈과 분리)</span></div>
+        <p class="infra-lead">엔진 위에 한 겹을 더 올려, 게임 모듈이 엔진 API 를 직접 만지지 않게 했습니다.</p>
+        <div class="infra-modules">
+          <div class="mod-row"><span class="mod-key wide">SKGAS</span><span class="mod-desc">ASC · AttributeSet · Ability · Cue · 공용 태그</span></div>
+          <div class="mod-row"><span class="mod-key wide">SKAssetCore</span><span class="mod-desc">에셋 매니저 + 이름→경로 룩업 DataAsset</span></div>
+          <div class="mod-row"><span class="mod-key wide">SKUICore</span><span class="mod-desc">UI 매니저(open · cache · reuse) + 위젯 베이스</span></div>
+          <div class="mod-row"><span class="mod-key wide">ModularGameplayActors</span><span class="mod-desc">모듈형 액터 베이스 · InitState 초기화 흐름</span></div>
+        </div>
+        <div class="infra-flow">의존성 방향: <b>게임 모듈</b> → <b>SK 플러그인</b> → 엔진 GAS / UMG (역방향 참조 금지)</div>
       </div>
     </section>
 
-    <!-- 06 Reuse -->
+    <!-- 06 에디터 자동화 (엔진 탭) -->
+    <section id="editor" data-engine="unity">
+      <div class="sec-head has-tabs">
+        <div class="sec-head-main">
+          <span class="sec-num">06</span>
+          <h3>코드를 넘어 에디터까지</h3>
+          <p class="sec-sub">게임 작업의 절반은 에디터 안에 있습니다. AI 가 코드만 쓰고 멈추지 않도록 <b>두 엔진 모두 MCP 서버로 에디터를 직접 조작</b>하게 하고, 대신 안전장치를 걸었습니다.</p>
+        </div>
+        <div class="eng-tabs" role="tablist" aria-label="06 에디터 엔진 선택">
+          <button class="eng-tab" role="tab" data-engine="unity" aria-selected="true"><span class="swatch"></span>Unity</button>
+          <button class="eng-tab" role="tab" data-engine="unreal" aria-selected="false"><span class="swatch"></span>Unreal</button>
+        </div>
+      </div>
+
+      <div class="editor-lead">
+        <span class="si">🖼️</span>
+        <p><strong>목업 승인 게이트는 두 엔진 공통입니다.</strong> 화면 배치를 만들거나 바꾸는 작업은, 먼저 목업을 사람에게 보여 승인받기 전까지 실제 UI 배선에 착수하지 못합니다. 메인 AI 가 "이 정도는 목업 없이" 라고 임의 판단하지 않습니다.</p>
+      </div>
+
+      <div class="grid only-unity">
+        <div class="agent" style="--ac: var(--cyan)">
+          <div class="a-top"><code>UnityMCP</code><span class="tag">에디터 제어</span></div>
+          <p class="a-desc">🎛️ <b>프리팹·씬을 AI 가 직접</b> — 프리팹 열기·저장 · 씬 오브젝트 생성 · 컴포넌트 부착과 프로퍼티 설정을 MCP 서버로 수행합니다.</p>
+          <span class="a-eng">prefab_open · prefab_save<br>game_object_create · component_set</span>
+        </div>
+        <div class="agent" style="--ac: var(--red)">
+          <div class="a-top"><code>.mockups/</code><span class="tag">승인 게이트</span></div>
+          <p class="a-desc">🖼️ <b>HTML 목업 + 로컬 프리뷰</b> — game-designer 가 화면 목업을 만들고, 로컬 서버로 띄워 브라우저에서 합의한 뒤에야 UI 를 배선합니다.</p>
+        </div>
+        <div class="agent" style="--ac: var(--amber)">
+          <div class="a-top"><code>editor tools</code><span class="tag">EditorWindow</span></div>
+          <p class="a-desc">🧰 <b>직접 만든 에디터 툴 4종</b> — 카드 편집 · 메타 편집 · 밸런스 조정 · JSON 동기화 윈도우를 만들어 데이터 작업을 에디터 안에서 끝냅니다.</p>
+          <span class="a-eng">Lair/Card Editor · Meta Editor<br>Balance Window · JSON Sync</span>
+        </div>
+      </div>
+
+      <div class="grid only-unreal">
+        <div class="agent" style="--ac: var(--cyan)">
+          <div class="a-top"><code>unreal-mcp</code><span class="tag">에디터 제어</span></div>
+          <p class="a-desc">🎛️ <b>에셋·레벨을 AI 가 직접</b> — 액터 스폰 · DataAsset 편집 · UMG 위젯 트리 조작을 MCP 서버로 수행합니다.</p>
+          <span class="a-eng">execute_python · spawn_actor<br>set_asset_property · get_actors_in_level</span>
+        </div>
+        <div class="agent" style="--ac: var(--red)">
+          <div class="a-top"><code>ui-workflow</code><span class="tag">승인 게이트</span></div>
+          <p class="a-desc">🖼️ <b>목업 우선 원칙</b> — 화면 배치를 바꾸는 작업은 목업 승인 전까지 위젯 에셋을 만지지 못합니다.</p>
+        </div>
+        <div class="agent" style="--ac: var(--amber)">
+          <div class="a-top"><code>editor tools</code><span class="tag">Slate C++</span></div>
+          <p class="a-desc">🧰 <b>직접 만든 에디터 툴 3종</b> — 데이터 세팅 · GA 클래스 생성 · 게임플레이 태그 관리 툴을 Slate 로 구현했습니다.</p>
+          <span class="a-eng">SpyDataEditorTool · SpyGACreatorTool<br>SpyTagManagerTool</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 이식 -->
     <section id="reuse">
       <div class="sec-head">
-        <span class="sec-num">06</span>
-        <h3>도메인 비종속 — 통째로 재사용 가능</h3>
+        <span class="sec-num">07</span>
+        <h3>도메인 비종속 — 실제로 이식했습니다</h3>
+        <p class="sec-sub">앞의 01~03 이 두 엔진에서 그대로 돌아간다는 것이 이 주장의 근거입니다. 이 섹션만은 엔진을 고르지 않습니다 — 양쪽을 나란히 놓는 것이 요점이기 때문입니다.</p>
       </div>
-      <div class="panel">
+      <div class="panel-reuse">
         <span class="icon">♻️</span>
-        <p>
-          직접 설계한 <strong>룰 세트 · 에이전트 정의 · 인프라 패키지</strong>는 특정 게임에 묶여 있지 않습니다. 프로젝트 정보를 담은
-          <code>.claude/project.md</code> <strong>메타 파일 하나만 갈아끼우면</strong>
-          이 6-에이전트 파이프라인 · 5개 룰 · 공용 인프라 패키지를 <strong>다른 프로젝트에 그대로 이식</strong>할 수 있습니다.
-        </p>
+        <div>
+          <p>
+            직접 설계한 <strong>룰 세트 · 에이전트 정의 · 인프라 계층</strong>은 특정 게임에 묶여 있지 않습니다.
+            언리얼로 넘어갈 때 <strong>바꾼 것은 04 룰의 본문과 05 인프라 계층뿐</strong>이고,
+            에이전트 6개 · 스킬 4종 · 승인 게이트 · 목업 게이트는
+            프로젝트 메타 파일(<code>00-project-meta-file.md</code> ↔ <code>.claude/project.md</code>)을
+            <strong>교체하는 것만으로 C# / Addressables 와 C++ / GAS 양쪽에서 그대로 동작</strong>했습니다.
+          </p>
+          <div class="proof">
+            <div class="proof-col u">
+              <div class="pc-h">UNITY</div>
+              <div class="pc-b">C# · Addressables<br>패키지 1개 / 9모듈<br>UnityMCP</div>
+            </div>
+            <div class="proof-col ue">
+              <div class="pc-h">UNREAL</div>
+              <div class="pc-b">C++ · GAS · UMG<br>플러그인 4종<br>unreal-mcp</div>
+            </div>
+            <div class="proof-col sh">
+              <div class="pc-h">그대로 간 것</div>
+              <div class="pc-b">에이전트 6 · 스킬 4<br>승인 게이트 · 목업 게이트<br>정기 루틴 · 사람 커밋</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ===== Portfolio links ===== -->
+    <!-- ===== 프로젝트 & 링크 ===== -->
     <div class="links-block">
       <h3 class="links-heading">프로젝트 &amp; 링크</h3>
       <div class="notice">
@@ -556,5 +722,49 @@
     </footer>
 
   </div>
+
+  <script>
+    (function () {
+      //# 엔진 상태는 섹션마다 따로 둔다 — 04 를 Unreal 로 바꿔도 05·06 은 그대로.
+      var sections = document.querySelectorAll('section[data-engine]');
+
+      function setEngine(section, name, anchor) {
+        //# 누른 버튼 자체를 기준점으로 잡는다 — 헤더 문구가 줄바꿈으로 높이가 변해도 버튼은 제자리에 남는다.
+        var before = anchor ? anchor.getBoundingClientRect().top : 0;
+
+        section.dataset.engine = name;
+        section.querySelectorAll('.eng-tab').forEach(function (t) {
+          t.setAttribute('aria-selected', String(t.dataset.engine === name));
+        });
+
+        if (anchor === undefined || anchor === null) { return; }
+
+        //# 이 섹션의 높이가 바뀐 만큼 스크롤을 되돌려 기준점을 붙잡아 둔다.
+        var delta = anchor.getBoundingClientRect().top - before;
+        if (delta === 0) { return; }
+
+        //# CSS 의 scroll-behavior: smooth 가 이 보정까지 애니메이션으로 재생해
+        //# 화면이 주르륵 흐른다 — 보정하는 순간만 auto 로 낮춘다.
+        var root = document.documentElement;
+        var prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollBy(0, delta);
+        root.style.scrollBehavior = prev;
+      }
+
+      sections.forEach(function (section) {
+        section.querySelectorAll('.eng-tab').forEach(function (t) {
+          t.addEventListener('click', function () { setEngine(section, t.dataset.engine, t); });
+        });
+      });
+
+      //# ?engine=unreal / #unreal 이면 전 섹션을 언리얼 뷰로 열어 준다 (이력서 링크용)
+      var q = new URLSearchParams(location.search).get('engine');
+      var h = location.hash.replace('#', '');
+      if (q === 'unreal' || h === 'unreal') {
+        sections.forEach(function (s) { setEngine(s, 'unreal'); });
+      }
+    })();
+  </script>
 </body>
 </html>
