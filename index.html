@@ -871,6 +871,17 @@
       if (q === 'unreal' || h === 'unreal') {
         sections.forEach(function (s) { setEngine(s, 'unreal'); });
       }
+
+      //# 퀵링크 패널: 새로고침마다 항상 펼친 상태로 시작하고, 클릭으로만 접힘 상태를 전환한다 (localStorage 저장 안 함).
+      var quickNav = document.getElementById('quickNav');
+      var quickNavToggle = document.getElementById('quickNavToggle');
+      if (quickNav && quickNavToggle) {
+        quickNavToggle.addEventListener('click', function () {
+          var collapsed = quickNav.classList.toggle('collapsed');
+          quickNavToggle.setAttribute('aria-expanded', String(!collapsed));
+          quickNavToggle.setAttribute('aria-label', collapsed ? '프로젝트 바로가기 펼치기' : '프로젝트 바로가기 접기');
+        });
+      }
     })();
   </script>
 </body>
