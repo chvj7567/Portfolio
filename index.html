@@ -308,49 +308,23 @@
     /* ---- 우측 고정 퀵링크 ---- */
     .quick-nav {
       position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
-      z-index: 40; display: flex; flex-direction: column; align-items: flex-end;
-    }
-    .quick-nav-toggle {
-      width: 30px; height: 30px; border-radius: 999px;
-      background: var(--bg-card); border: 1px solid var(--border-strong);
-      color: var(--text-dim); cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; margin-bottom: 8px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-      transition: color 0.15s, background 0.15s;
-    }
-    .quick-nav-toggle:hover { color: var(--text); background: var(--bg-card-hover); }
-    .quick-nav-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-    .qn-arrow { display: inline-block; transition: transform 0.2s; }
-    .quick-nav.collapsed .qn-arrow { transform: rotate(180deg); }
-
-    .quick-nav-list {
-      display: flex; flex-direction: column; gap: 6px;
+      z-index: 40; display: flex; flex-direction: column; align-items: center; gap: 4px;
       background: rgba(26,29,36,0.92); backdrop-filter: blur(6px);
       border: 1px solid var(--border-strong); border-radius: 12px;
-      padding: 12px; width: 190px;
+      padding: 12px 10px; text-decoration: none; color: var(--text-dim);
       box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      transition: color 0.15s, background 0.15s;
     }
-    .quick-nav-title {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--text-faint); margin-bottom: 2px; padding: 0 2px;
+    .quick-nav:hover { color: var(--text); background: var(--bg-card-hover); }
+    .quick-nav:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .qn-icon { font-size: 16px; line-height: 1; }
+    .qn-label {
+      font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em;
+      writing-mode: vertical-rl;
     }
-    .qn-link {
-      display: flex; align-items: center; gap: 8px;
-      padding: 7px 8px; border-radius: 8px;
-      text-decoration: none; color: var(--text);
-      transition: background 0.15s;
-    }
-    .qn-link:hover { background: var(--bg-card-hover); }
-    .qn-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-    .qn-link .engine { margin-left: 0; flex-shrink: 0; }
-    .qn-name { font-size: 12.5px; font-weight: 500; }
-
-    .quick-nav.collapsed .quick-nav-list { display: none; }
 
     @media (max-width: 640px) {
-      .quick-nav { right: 12px; }
-      .quick-nav-list { width: 160px; }
+      .quick-nav { right: 12px; padding: 10px 8px; }
     }
 
     @media (max-width: 640px) {
@@ -726,7 +700,7 @@
     </section>
 
     <!-- ===== 프로젝트 & 링크 ===== -->
-    <div class="links-block">
+    <div class="links-block" id="project-links">
       <h3 class="links-heading">프로젝트 &amp; 링크</h3>
       <div class="notice">
         각 GitHub 프로젝트의 상세 내용과 <strong>플레이 영상</strong>은 해당 저장소의 <strong>README</strong>에 정리되어 있습니다.
@@ -801,34 +775,10 @@
 
   </div>
 
-  <aside class="quick-nav" id="quickNav">
-    <button class="quick-nav-toggle" id="quickNavToggle" type="button" aria-expanded="true" aria-controls="quickNavList" aria-label="프로젝트 바로가기 접기">
-      <span class="qn-arrow">▸</span>
-    </button>
-    <div class="quick-nav-list" id="quickNavList">
-      <span class="quick-nav-title">Projects</span>
-      <a class="qn-link" href="https://github.com/chvj7567/Project_Lair" target="_blank" rel="noopener">
-        <span class="engine engine-unity">Unity</span>
-        <span class="qn-name">Project Lair</span>
-      </a>
-      <a class="qn-link" href="https://github.com/chvj7567/Project_CP" target="_blank" rel="noopener">
-        <span class="engine engine-unity">Unity</span>
-        <span class="qn-name">Project CP</span>
-      </a>
-      <a class="qn-link" href="https://github.com/chvj7567/SkillTool" target="_blank" rel="noopener">
-        <span class="engine engine-unity">Unity</span>
-        <span class="qn-name">Project Skill</span>
-      </a>
-      <a class="qn-link" href="https://github.com/chvj7567/UnrealSkillProject" target="_blank" rel="noopener">
-        <span class="engine engine-unreal">Unreal</span>
-        <span class="qn-name">Unreal Skill Project</span>
-      </a>
-      <a class="qn-link" href="https://github.com/chvj7567/Project_RPG" target="_blank" rel="noopener">
-        <span class="engine engine-unreal">Unreal</span>
-        <span class="qn-name">Project RPG</span>
-      </a>
-    </div>
-  </aside>
+  <a class="quick-nav" href="#project-links" aria-label="프로젝트 링크로 이동">
+    <span class="qn-icon">🔗</span>
+    <span class="qn-label">Projects</span>
+  </a>
 
   <script>
     (function () {
@@ -870,17 +820,6 @@
       var h = location.hash.replace('#', '');
       if (q === 'unreal' || h === 'unreal') {
         sections.forEach(function (s) { setEngine(s, 'unreal'); });
-      }
-
-      //# 퀵링크 패널: 새로고침마다 항상 펼친 상태로 시작하고, 클릭으로만 접힘 상태를 전환한다 (localStorage 저장 안 함).
-      var quickNav = document.getElementById('quickNav');
-      var quickNavToggle = document.getElementById('quickNavToggle');
-      if (quickNav && quickNavToggle) {
-        quickNavToggle.addEventListener('click', function () {
-          var collapsed = quickNav.classList.toggle('collapsed');
-          quickNavToggle.setAttribute('aria-expanded', String(!collapsed));
-          quickNavToggle.setAttribute('aria-label', collapsed ? '프로젝트 바로가기 펼치기' : '프로젝트 바로가기 접기');
-        });
       }
     })();
   </script>
