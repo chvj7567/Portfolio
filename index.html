@@ -305,6 +305,54 @@
     footer a { color: var(--text-dim); text-decoration: none; }
     footer a:hover { color: var(--blue-soft); }
 
+    /* ---- 우측 고정 퀵링크 ---- */
+    .quick-nav {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      z-index: 40; display: flex; flex-direction: column; align-items: flex-end;
+    }
+    .quick-nav-toggle {
+      width: 30px; height: 30px; border-radius: 999px;
+      background: var(--bg-card); border: 1px solid var(--border-strong);
+      color: var(--text-dim); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; margin-bottom: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+      transition: color 0.15s, background 0.15s;
+    }
+    .quick-nav-toggle:hover { color: var(--text); background: var(--bg-card-hover); }
+    .quick-nav-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .qn-arrow { display: inline-block; transition: transform 0.2s; }
+    .quick-nav.collapsed .qn-arrow { transform: rotate(180deg); }
+
+    .quick-nav-list {
+      display: flex; flex-direction: column; gap: 6px;
+      background: rgba(26,29,36,0.92); backdrop-filter: blur(6px);
+      border: 1px solid var(--border-strong); border-radius: 12px;
+      padding: 12px; width: 190px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .quick-nav-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-faint); margin-bottom: 2px; padding: 0 2px;
+    }
+    .qn-link {
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 8px; border-radius: 8px;
+      text-decoration: none; color: var(--text);
+      transition: background 0.15s;
+    }
+    .qn-link:hover { background: var(--bg-card-hover); }
+    .qn-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .qn-link .engine { margin-left: 0; flex-shrink: 0; }
+    .qn-name { font-size: 12.5px; font-weight: 500; }
+
+    .quick-nav.collapsed .quick-nav-list { display: none; }
+
+    @media (max-width: 640px) {
+      .quick-nav { right: 12px; }
+      .quick-nav-list { width: 160px; }
+    }
+
     @media (max-width: 640px) {
       .showcase-intro h2 { font-size: 26px; }
       .page { padding: 40px 18px 72px; }
